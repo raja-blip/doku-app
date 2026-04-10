@@ -9,7 +9,7 @@
             --bg: #000000;
             --text: #ffffff;
             --accent: #0071e3;
-            --secondary: #1d1d1f;
+            --secondary: #1c1c1e;
             --muted: #86868b;
         }
 
@@ -18,66 +18,182 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg);
             color: var(--text);
-            line-height: 1.5;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         header {
-            padding: 80px 0 40px;
+            padding: 100px 0 60px;
             text-align: center;
         }
 
         .app-icon {
-            width: 100px;
-            height: 100px;
-            border-radius: 22px;
+            width: 120px;
+            height: 120px;
+            border-radius: 26px;
             background: linear-gradient(135deg, #0071e3, #00c6ff);
-            margin: 0 auto 20px;
+            margin: 0 auto 24px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 50px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            font-size: 60px;
+            font-weight: bold;
+            box-shadow: 0 20px 40px rgba(0,113,227,0.3);
         }
 
-        h1 { font-size: 48px; font-weight: 700; margin: 0; letter-spacing: -0.5px; }
-        .tagline { font-size: 24px; color: var(--muted); margin-top: 10px; }
+        h1 { font-size: 56px; font-weight: 700; margin: 0; letter-spacing: -1.5px; }
+        .tagline { font-size: 26px; color: var(--muted); margin-top: 10px; font-weight: 400; }
 
-        section { padding: 60px 0; border-bottom: 1px solid var(--secondary); }
-        h2 { font-size: 28px; margin-bottom: 20px; }
+        /* Screenshot Gallery */
+        .screenshot-gallery {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 40px 0;
+            scroll-snap-type: x mandatory;
+            justify-content: center;
+        }
 
-        .bento-grid-demo {
+        .screenshot-item {
+            flex: 0 0 280px;
+            scroll-snap-align: center;
+            text-align: center;
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            border-radius: 30px;
+            border: 6px solid var(--secondary);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot-item img:hover {
+            transform: scale(1.02);
+        }
+
+        .screenshot-label {
+            margin-top: 15px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        section { padding: 80px 0; border-top: 1px solid var(--secondary); }
+        h2 { font-size: 32px; font-weight: 600; margin-bottom: 30px; text-align: center; }
+
+        .bento-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin: 30px 0;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
         }
 
-        .bento-item {
+        .bento-card {
             background: var(--secondary);
-            padding: 20px;
-            border-radius: 18px;
-            border: 1px solid #333;
+            padding: 30px;
+            border-radius: 24px;
+            text-align: left;
         }
 
-        .btn {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 980px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 20px;
-        }
+        .bento-card strong { display: block; font-size: 18px; margin-bottom: 10px; color: var(--accent); }
 
         .privacy-box {
             background: var(--secondary);
-            padding: 30px;
-            border-radius
+            padding: 40px;
+            border-radius: 28px;
+            font-size: 15px;
+            color: #d2d2d7;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        footer {
+            padding: 60px 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 40px; }
+            .screenshot-gallery { justify-content: flex-start; padding-left: 20px; }
+            .screenshot-item { flex: 0 0 250px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="app-icon">D</div>
+        <h1>Doku</h1>
+        <p class="tagline">The 3-Second Rule for Your IDs.</p>
+    </header>
+
+    <div class="screenshot-gallery">
+        <div class="screenshot-item">
+            <img src="assets/setup.png" alt="Doku Setup Screen">
+            <div class="screenshot-label">Easy Setup</div>
+        </div>
+        <div class="screenshot-item">
+            <img src="assets/new home.png" alt="Doku Home Screen">
+            <div class="screenshot-label">Bento Home</div>
+        </div>
+        <div class="screenshot-item">
+            <img src="assets/vehicle.png" alt="Doku Vehicle Docs">
+            <div class="screenshot-label">Vehicle Vault</div>
+        </div>
+    </div>
+
+    <section id="features">
+        <h2>Built for Speed & Privacy</h2>
+        <div class="bento-grid">
+            <div class="bento-card">
+                <strong>Offline-First</strong>
+                <p>No internet required. Perfect for basement parking or airport gates.</p>
+            </div>
+            <div class="bento-card">
+                <strong>Sign-in Free</strong>
+                <p>No accounts. We don't want your data. It stays on your device.</p>
+            </div>
+            <div class="bento-card">
+                <strong>Biometric Security</strong>
+                <p>Locked with Face ID or Fingerprint. No weak password fallbacks.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="support" style="text-align: center;">
+        <h2>Support</h2>
+        <p>Questions? Suggestions? We're here to help.</p>
+        <p style="font-size: 20px;"><strong>Email:</strong> <a href="mailto:support@listolabs.com">support@listolabs.com</a></p>
+    </section>
+
+    <section id="privacy">
+        <h2>Privacy Policy</h2>
+        <div class="privacy-box">
+            <p><strong>Effective Date: April 10, 2026</strong></p>
+            <p>Doku (by Listo Labs) is designed to be a private "vault" for your documents.</p>
+            <p><strong>1. No Data Collection:</strong> We do not collect, store, or see your personal documents. All files are saved locally on your phone.</p>
+            <p><strong>2. Local Biometrics:</strong> Authentication is handled by iOS/Android system APIs. We never see your Face ID or Fingerprint data.</p>
+            <p><strong>3. Zero Analytics:</strong> We do not track your usage. Your ID locker is your private business.</p>
+            <p><strong>4. Cloud Backups:</strong> If enabled, your data syncs only to your personal Google Drive or iCloud account.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Listo Labs. Built in India.</p>
+    </footer>
+</div>
+
+</body>
+</html>
