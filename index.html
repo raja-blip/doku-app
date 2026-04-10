@@ -29,60 +29,47 @@
         }
 
         header {
-            padding: 100px 0 60px;
+            padding: 80px 0 60px;
             text-align: center;
         }
 
-        .app-icon {
+        .app-logo {
             width: 120px;
             height: 120px;
             border-radius: 26px;
-            background: linear-gradient(135deg, #0071e3, #00c6ff);
             margin: 0 auto 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-            font-weight: bold;
-            box-shadow: 0 20px 40px rgba(0,113,227,0.3);
+            display: block;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            object-fit: cover;
         }
 
         h1 { font-size: 56px; font-weight: 700; margin: 0; letter-spacing: -1.5px; }
         .tagline { font-size: 26px; color: var(--muted); margin-top: 10px; font-weight: 400; }
 
-        /* Screenshot Gallery */
         .screenshot-gallery {
             display: flex;
             gap: 20px;
             overflow-x: auto;
             padding: 40px 0;
-            scroll-snap-type: x mandatory;
             justify-content: center;
         }
 
         .screenshot-item {
             flex: 0 0 280px;
-            scroll-snap-align: center;
             text-align: center;
         }
 
         .screenshot-item img {
             width: 100%;
             border-radius: 30px;
-            border: 6px solid var(--secondary);
+            border: 1px solid #333;
             box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-            transition: transform 0.3s ease;
-        }
-
-        .screenshot-item img:hover {
-            transform: scale(1.02);
         }
 
         .screenshot-label {
             margin-top: 15px;
             color: var(--muted);
             font-size: 14px;
-            font-weight: 500;
         }
 
         section { padding: 80px 0; border-top: 1px solid var(--secondary); }
@@ -90,7 +77,7 @@
 
         .bento-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
 
@@ -98,7 +85,6 @@
             background: var(--secondary);
             padding: 30px;
             border-radius: 24px;
-            text-align: left;
         }
 
         .bento-card strong { display: block; font-size: 18px; margin-bottom: 10px; color: var(--accent); }
@@ -111,6 +97,7 @@
             color: #d2d2d7;
             max-width: 700px;
             margin: 0 auto;
+            text-align: left;
         }
 
         footer {
@@ -121,72 +108,59 @@
         }
 
         a { color: var(--accent); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 40px; }
-            .screenshot-gallery { justify-content: flex-start; padding-left: 20px; }
-            .screenshot-item { flex: 0 0 250px; }
-        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <div class="app-icon">D</div>
+        <img src="assets/icon-t.png" alt="Doku Logo" class="app-logo">
         <h1>Doku</h1>
         <p class="tagline">The 3-Second Rule for Your IDs.</p>
     </header>
 
     <div class="screenshot-gallery">
         <div class="screenshot-item">
-            <img src="assets/setup.png" alt="Doku Setup Screen">
-            <div class="screenshot-label">Easy Setup</div>
+            <img src="assets/setup.png" alt="Doku Setup">
+            <div class="screenshot-label">Simple Setup</div>
         </div>
         <div class="screenshot-item">
-            <img src="assets/new home.png" alt="Doku Home Screen">
-            <div class="screenshot-label">Bento Home</div>
+            <img src="assets/new%20home.png" alt="Doku Home">
+            <div class="screenshot-label">Bento Layout</div>
         </div>
         <div class="screenshot-item">
-            <img src="assets/vehicle.png" alt="Doku Vehicle Docs">
-            <div class="screenshot-label">Vehicle Vault</div>
+            <img src="assets/vehicle.png" alt="Doku Vehicle">
+            <div class="screenshot-label">Vehicle Docs</div>
         </div>
     </div>
 
     <section id="features">
-        <h2>Built for Speed & Privacy</h2>
+        <h2>Premium Utility</h2>
         <div class="bento-grid">
             <div class="bento-card">
                 <strong>Offline-First</strong>
-                <p>No internet required. Perfect for basement parking or airport gates.</p>
+                <p>Documents stay on your phone. No internet needed for airport security.</p>
             </div>
             <div class="bento-card">
                 <strong>Sign-in Free</strong>
-                <p>No accounts. We don't want your data. It stays on your device.</p>
-            </div>
-            <div class="bento-card">
-                <strong>Biometric Security</strong>
-                <p>Locked with Face ID or Fingerprint. No weak password fallbacks.</p>
+                <p>No tracking or data collection. Your privacy is our priority.</p>
             </div>
         </div>
     </section>
 
     <section id="support" style="text-align: center;">
         <h2>Support</h2>
-        <p>Questions? Suggestions? We're here to help.</p>
-        <p style="font-size: 20px;"><strong>Email:</strong> <a href="mailto:support@listolabs.com">support@listolabs.com</a></p>
+        <p>Questions? Reach out to us.</p>
+        <p style="font-size: 20px;"><strong>Email:</strong> <a href="mailto:dev.listolabs@gmail.com">dev.listolabs@gmail.com</a></p>
     </section>
 
     <section id="privacy">
         <h2>Privacy Policy</h2>
         <div class="privacy-box">
             <p><strong>Effective Date: April 10, 2026</strong></p>
-            <p>Doku (by Listo Labs) is designed to be a private "vault" for your documents.</p>
-            <p><strong>1. No Data Collection:</strong> We do not collect, store, or see your personal documents. All files are saved locally on your phone.</p>
-            <p><strong>2. Local Biometrics:</strong> Authentication is handled by iOS/Android system APIs. We never see your Face ID or Fingerprint data.</p>
-            <p><strong>3. Zero Analytics:</strong> We do not track your usage. Your ID locker is your private business.</p>
-            <p><strong>4. Cloud Backups:</strong> If enabled, your data syncs only to your personal Google Drive or iCloud account.</p>
+            <p>Doku is designed as a local-only vault. We do not collect, store, or have any access to your documents or biometric data.</p>
+            <p><strong>Local Storage:</strong> All files are stored on your device's secure enclave.</p>
+            <p><strong>Cloud:</strong> Backups are sent only to your personal Google Drive or iCloud account.</p>
         </div>
     </section>
 
